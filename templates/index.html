@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link href="/static/css/main.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>API CMC DATA</title>
+</head>
+<body>
+<h1>Fast table from COINMARKETCAP.com</h1>
+
+
+<table class="table table-dark table-bordered table-sm tableFixHead">
+  <thead>
+    <tr>
+      <th scope="col">CMC rank</th>
+      <th scope="col">Name</th>
+      <th scope="col">Symbol</th>
+      <th scope="col">Price</th>
+      <th scope="col">Max suply</th>
+      <th scope="col">Circulating supply</th>
+      <th scope="col">Total supply</th>
+      <th scope="col">volume_24h</th>
+      <th scope="col">percent_change_1h</th>
+      <th scope="col">percent_change_24h</th>
+      <th scope="col">percent_change_7d</th>
+      <th scope="col">percent_change_30d</th>
+      <th scope="col">percent_change_60d</th>
+      <th scope="col">percent_change_90d</th>
+    </tr>
+  </thead>
+{% for item in data: %}
+  <tbody>
+    <tr>
+      <th scope="row">{{ item.cmc_rank }}</th>
+      <td>{{ item.name }}</td>
+      <td>{{ item.symbol }}</td>
+      <td>{{ item.quote.USD.price }}</td>
+      <td>{{ item.max_supply }}</td>
+      <td>{{ item.circulating_supply }}</td>
+      <td>{{ item.total_supply }}</td>
+      <td>{{ item.quote.USD.volume_24h }}</td>
+      <td>{{ item.quote.USD.percent_change_1h }}</td>
+      <td>{{ item.quote.USD.percent_change_24h }}</td>
+      <td>{{ item.quote.USD.percent_change_7d }}</td>
+      <td>{{ item.quote.USD.percent_change_30d }}</td>
+      <td>{{ item.quote.USD.percent_change_60d }}</td>
+      <td>{{ item.quote.USD.percent_change_90d }}</td>
+    </tr>
+  </tbody>
+{% endfor %}
+</table>
+
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</body>
+</html>
